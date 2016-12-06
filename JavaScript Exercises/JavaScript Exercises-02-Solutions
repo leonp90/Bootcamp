@@ -1,0 +1,143 @@
+// Write a function translate() that will translate a text into "rövarspråket". That is, double every consonant and place an occurrence of "o" in between. For example, translate("this is fun") should return the string "tothohisos isos fofunon".
+
+function translate( text ) {
+
+	var currentLetter = "";
+	var translatedText = "";
+
+	function isVowel( letter ) {
+		return ("aeiou ".indexOf(letter) != -1)
+	}
+
+	for (var i=0; i<text.length; i++) {
+
+		currentLetter = text[i];
+		if ( isVowel(currentLetter) ) {
+			translatedText += currentLetter;
+		}
+		else {
+			translatedText += currentLetter + "o" + currentLetter;
+		}
+
+	}
+	return translatedText;
+
+}
+
+translate("this is fun")
+
+/*translate()
+Write a function translate() that will translate a text into "rövarspråket". 
+That is, double every consonant and place an occurrence of "o" in between. 
+For example,translate("this is fun") should return the string "tothohisos isos fofunon".*/
+
+function translate( string ) {
+
+    var vowel = ["a","e","i","o","u", " "];
+    var splitedStr = string.split(""); // array of string
+    var newStr = "";
+    var isVowel;
+    var currentLetter = "";
+
+    for( var i=0; i<splitedStr.length; i++) {
+        currentLetter = splitedStr[i];
+        isVowel = false;
+        
+        for (var j=0; j<vowel.length; j++) {
+            if(currentLetter == vowel[j]){
+                isVowel = true;
+            }
+        }
+
+        if ( isVowel ) {
+            newStr += currentLetter;
+        }
+        else {
+            newStr += currentLetter + "o" + currentLetter ;   
+        }
+
+    }
+
+    return newStr;
+
+}
+
+translate("this is fun")
+
+// Represent a small bilingual lexicon as a Javascript object in the following fashion {"merry":"god", "christmas":"jul", "and":"och", "happy":gott", "new":"nytt", "year":"år"} and use it to translate your Christmas cards from English into Swedish.
+
+// {"merry":"god", "christmas":"jul", "and":"och", "happy":gott", "new":"nytt", "year":"år"}
+
+// "merry christmas and happy new year" => "god jul och gott nytt år"
+
+function translateToSwedish ( msg ) {
+
+	var dictionary = {
+		merry: "god",
+		christmas: "jul",
+		and: "och",
+		happy: "gott",
+		new: "nytt",
+		year: "år"
+	}
+	var wordsMsg = msg.split(" ");
+	var currentWord, translatedWord;
+	var translatedWords = [];
+
+	for (var i=0; i<wordsMsg.length; i++) {
+		currentWord = wordsMsg[i];
+		translatedWord = dictionary[currentWord];
+
+		translatedWords.push( translatedWord )
+	}
+
+	return translatedWords.join(" ");
+
+}
+
+translateToSwedish("merry christmas and happy new year") // => "god jul och gott nytt år"
+
+/*
+findLongestWord()
+
+Write a function findLongestWord() that takes an array of words and returns the length of the longest one.
+*/
+
+function findLongestWord(listWords){
+    
+    var currentWord;
+    var longestWord = "";
+
+    for(var i=0; i<listWords.length; i++){
+        
+        currentWord = listWords[i];
+        
+        if(currentWord.length>longestWord.length){
+            longestWord = currentWord;
+        }
+    }
+    
+    return longestWord;
+}
+
+/*
+charFreq()
+
+Write a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
+
+*/
+function charFreq (text) { 
+    var currentChar; 
+    var freq = {};
+    for(var i = 0; i < text.length; i++){ 
+        currentChar = text[i];
+        if ( freq[currentChar] == undefined ) {
+            freq[currentChar] = 1;
+        }
+        else {
+            freq[currentChar]++
+        }
+    }
+
+    return freq;   
+}

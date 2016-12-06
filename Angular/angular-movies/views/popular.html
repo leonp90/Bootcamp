@@ -1,0 +1,11 @@
+<h2>{{title}}</h2>
+<div class="row rowA">
+	<div class="col-xs-6 moviesCont" ng-repeat="title in moviesPop">
+	
+		<img class="img-responsive" src="https://image.tmdb.org/t/p/w500/{{title.poster_path}}" alt="">
+		<h3>{{title.title}}</h3>
+		<h4><small>{{title.release_date}}</small></h4>	
+	</div>
+
+</div>
+	

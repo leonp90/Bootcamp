@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Students Project</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="lib/bootstrap.min.css">
+
+</head>
+<body>
+
+	<div class="container" ng-controller="myController">
+
+			<div class="jumbotron" >
+				<div class="container">
+					<h1>{{ title }}</h1>
+					<form ng-submit="findArtists($event, artistQuery)" action="" method="POST" class="form-inline" role="form">
+
+						<div class="form-group">
+							<label class="sr-only" for="">label</label>
+							<input ng-model="artistQuery" type="text" class="form-control" id="" placeholder="Input artist name...">
+						</div>
+
+						<button type="submit" class="btn btn-primary">Search</button>
+					</form>
+				</div>
+			</div>
+
+			<div ng-show="!isTrackSelected">
+				<div class="form-group" >
+					<label for="input" class=" control-label">Artists:</label>
+					<div class="col-sm-2">
+						<select ng-model="artistId" ng-change="findAlbums()"  name="" id="input" class="form-control" required="required">
+							<option ng-repeat="artist in artists" value="{{ artist.id }}">{{ artist.name }}</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group" >
+					<label for="input" class=" control-label">Albums:</label>
+					<div class="col-sm-2">
+						<select ng-model="albumId" ng-change="getTracks()" name="" id="input" class="form-control" required="required">
+							<option ng-repeat="album in albums" value="{{ album.id }}">{{ album.name }}</option>
+						</select>
+					</div>
+				</div>
+				<div>
+					<ul>
+						<li ng-repeat="track in tracks">
+							<a href ng-click="selectTrack(track)">{{track.name}}</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div>
+				<img ng-src="{{ selectedAlbum.images[0].url }}">
+
+				<audio ng-if="selectedTrack.preview_url" controls>
+				  <source ng-src="{{ selectedTrack.preview_url }}" type="audio/ogg">
+				  <source ng-src="{{ selectedTrack.preview_url }}" type="audio/mpeg">
+				  Your browser does not support the audio element.
+				</audio>
+			</div>
+	</div>
+
+	<script src="lib/angular.min.js "></script>
+
+	<script src="app.js"></script>
+	<script src="controller.js"></script>
+	<script src="service.js"></script>
+
+</body>
+</html>

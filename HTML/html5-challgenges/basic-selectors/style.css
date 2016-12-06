@@ -1,0 +1,41 @@
+body{
+	background-image: url("img/bg_page.png");
+	background-repeat: repeat-y;
+	background-position: center;
+}
+.imghead{
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+.wrapbody{
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 760px;
+}
+.section{
+	border-top: solid 2px green;
+	padding-left: 100px;
+	margin-top: 25px;
+}
+h1, h2, h3, h4{
+	color: #bd8100;
+	font-weight: bolder;
+	margin-top: 10px;
+}
+.specialtext{
+	color: #ff8328;
+	font-size: 20px;
+	font-weight: bold;
+}
+.note{
+	border: dashed 5px orange;
+	background-color: #fbf8a9; 
+	border-width: 2px;
+}
+.notetxt{
+	padding: 5px 10px 5px 15px;
+}
+strong{
+	color: orange;
+}

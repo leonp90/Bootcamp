@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Beers Project</title>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+</head>
+<body>
+
+		<div class="container">
+			<h1>Spotify</h1>
+			<form id="artist-search" action="" method="POST" class="form-inline" role="form">
+
+				<div class="form-group">
+					<label class="sr-only" for="">label</label>
+					<input type="text" class="form-control"  placeholder="Input artist name...">
+				</div>
+
+				<button type="submit" class="btn btn-primary">Search!</button>
+			</form>
+		</div>
+	</div>
+
+	<div id="results" class="container">
+		<form action="" class="form-inline">
+
+			<select name="" id="" class="form-control hide">
+			</select>
+
+			<select name="" id="" class="form-control hide">
+				
+			</select>
+
+		</form>
+	</div>
+	<div id="tracks" class="container">
+			<ul>
+				
+			</ul>
+		
+	</div>
+
+
+
+	<script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script>
+
+		$("#artist-search").on("submit", function(e) {
+
+			e.preventDefault();
+			var $input = $(this).find('input');
+			var artistQuery = $input.val()
+			var URL_SEARCH_API= " https://api.spotify.com/v1/search?type=artist&query="
+			var urlSearchArtist = URL_SEARCH_API + artistQuery;
+			$.ajax({
+				url: urlSearchArtist,
+				data:'json'
+			})
+			.done(function( artistData){
+				var listArtist = "<option>Select artist...</option>";
+				$.each(artistData.artists.items, function(i, artist){
+					listArtist+= '<option value="'+artist.id+'">'+artist.name+ '</option>'
+				})
+				$("#results select:first")
+					.html(listArtist)
+					.removeClass('hide');
+
+				
+
+
+					
+					})
+
+			})
+		$("#results select:first").on("change", function(){
+					$(this).find("option").first().attr("disabled", "disabled")
+					var idArtist = $(this).val();
+					var URL_API_ALBUMS = 'https://api.spotify.com/v1/artists/'+idArtist+'/albums'
+					$.ajax({
+						url: URL_API_ALBUMS,
+						dataType: 'json'
+					})
+					.done(function(albumsArtist){
+						var listAlbums= "<option>Select artist...</option>";
+
+					$.each(albumsArtist.items, function(i, album){
+					listAlbums+= '<option value="'+album.id+'">'+album.name+ '</option>'
+						})
+						$("#results select:last")
+					.html(listAlbums)
+					.removeClass('hide');
+
+					})
+				})
+
+		$("#results select:last").on("change", function(){
+			$(this).find("option").first().attr("disabled", "disabled")
+			var idAlbum = $(this).val();
+			var URL_API_TRACKS = ' https://api.spotify.com/v1/albums/'+idAlbum+'/tracks'
+			$.ajax({
+				url: URL_API_TRACKS,
+				dataType: 'json'
+			})
+			.done(function(trackArtist){
+				var listTracks="";
+
+			$.each(trackArtist.items, function(i, track){
+					listTracks+= '<a href="'+track.preview_url+'"><li>'+track.name+'</li>'
+				})
+				$("#tracks ul")
+				.html(listTracks);
+			})
+		})
+
+
+	 //    dataType: "json"
+    // https://api.spotify.com/v1/search?type=artist&query=<ARTIST-NAME>
+    // https://api.spotify.com/v1/artists/<ID-ARTIST>/albums
+    // https://api.spotify.com/v1/albums/<ID-ALBUM>/tracks
+
+
+			// var beerQuery = $input.val();
+			// var URL_SEARCH_API = "https://quiet-inlet-67115.herokuapp.com/api/search/all?q="
+			// var urlSearchBeer = URL_SEARCH_API + beerQuery;
+
+			// $.ajax({
+			// 	url: urlSearchBeer,
+			// 	dataType: 'json'
+			// })
+			// .done(function( dataBeers ) {
+			// 	var listBeers = "<option>Select beer...</option>";
+			// 	$.each( dataBeers, function(i, beer) {
+			// 		listBeers += '<option value="' + beer.id + '">' + beer.name + '</option>'
+			// 	})
+			// 	$("#results select")
+			// 		.html(listBeers)
+			// 		.removeClass("hide");
+
+			// 	$("#results select").on("change", function() {
+			// 		$(this).find("option").first().attr("disabled", "disabled")
+			// 		var idBeer = $(this).val();
+			// 		var URL_API_DETAILS = 'https://quiet-inlet-67115.herokuapp.com/api/beer/'
+			// 		var urlDetailsBeer = URL_API_DETAILS + idBeer;
+
+			// 		$.ajax({
+			// 			url: urlDetailsBeer,
+			// 			dataType: 'json'
+			// 		})
+			// 		.done( function ( detailsBeer ) {
+			// 			var name = detailsBeer.name;
+			// 			var description = detailsBeer.style.description;
+			// 			var category = detailsBeer.style.category.name;
+
+			// 			$("#details h2 span").text(name)
+			// 			$("#details h2 small").text(category)
+			// 			$("#details p").text(description)
+			// 		})
+
+			// 	})
+			// })
+
+
+
+
+	</script>
+
+</body>
+</html>

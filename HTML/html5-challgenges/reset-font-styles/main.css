@@ -1,0 +1,33 @@
+body{
+	font-family: 'PTSans';
+	background-image: url("images/bg_banner.jpg");
+	background-repeat: repeat-x;
+	display: block;
+	background-color: #e1eefd;
+}
+.main{
+	background-image: url("images/bg_banner.jpg");
+	background-repeat: repeat-x;
+	margin:0 auto;
+	width: 75%;
+	border: solid 5px white;
+	background-color: #e1eefd;
+}
+.hstrong{
+	color: white;
+	font-size: 4.5em;
+	z-index: -10;
+	display: inline-block;
+	margin-right: -110px;
+	padding-top: 0;
+	line-height: 0.75;
+	text-shadow: 3px 2px 10px #000000;
+	font-weight: bold;
+}
+h1{
+	color: #fc6600;
+	font-size: 2.5em;	
+	text-shadow: 3px 3px 7px #000000;
+
+}
+

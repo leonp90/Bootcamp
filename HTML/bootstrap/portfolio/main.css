@@ -1,0 +1,17 @@
+h1 span{
+	color: #617A90;
+}
+h3{
+	color: #617A90;
+}
+.experience{
+	background-color: #EDEDED;
+}
+.experience dt{
+	display: inline-block;
+	width: 30%;
+}
+.experience dd{
+	display: inline-block;
+	width: 69%;
+}

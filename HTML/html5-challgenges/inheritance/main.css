@@ -1,0 +1,23 @@
+h1, h2, h3, h4, h5, h6{
+	color: #CB9225;
+}
+body{
+	border-left: solid 50px white;
+	border-right: solid 50px white;
+}
+p{
+	color: #E7502D;
+	border-left: solid 20px #CB9225;
+	margin-left: 50px;
+	padding-left: 20px;
+	font-size: 20px;
+}
+li{
+	color: #CB9225;
+	font-size: 18px;
+}
+.wrapbody{
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 900px;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+h1{
+	color: blue;
+	font-size: 28;
+}	
+
+</style>
+<body>
+	<h1>A SIMPLE FORM</h1>
+	<h3>Form fundamentals</h3>
+
+	<form action="#">
+		<fieldset>
+			<legend>Custome Innfo</legend>
+			<div>
+			<label for="Name">Name:</label> 
+			<input type="text" name="Name" placeholder="Enter your name"  autofocus required>
+			</div>
+			<div>
+			<label for="Telephone">Telephone:</label>
+			<input type="tel" name="Telephone" placeholder="Pattern: 1-123-456-7890" pattern="[0-9]-[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+			</div>
+			<div>
+			<label for="Email">Email address:</label>
+			<input type="email" name="Email" placeholder="Enter your email address" required>				
+			</div>
+
+		</fieldset>
+		<fieldset>
+			<legend>Books</legend>
+			<div>
+				<input list="Books" name="Books" type="text" required>
+					<datalist id="Books">
+						<option value="Hola mundo">Hola mundo</option>
+						<option value="JavaScript">JavaScript</option>
+						<option value="CSS">CSS</option>
+						<option value="HTML">HTML</option>
+					</datalist>
+			<label for="quantity"> Quantity (Maximun 5): </label>
+				<input name="quantity" type="number" min="1" max="5">
+			</div>
+		</fieldset>
+			<button type="submit">Submit</button>
+	</form>
+
+	<p>	&copy; 2017 Acme United. All rights reserved.</p>
+</body>
+</html>

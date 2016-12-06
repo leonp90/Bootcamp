@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<h1></h1>	
+	<img src="" alt="">
+	<a href=""></a>
+
+
+
+
+	<script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script>
+
+	// $("button").on("click", function() {
+		$.ajax({
+			url: 'youtube.json',
+			dataType: 'json'
+		})
+		.done(function(data){
+			$("h1").text(data.data.items[0].title);
+			$("img").attr('src',data.data.items[0].thumbnail.default)
+			console.log(data.data.items[0].thumbnail.default);
+			$('img').appendTo('a');
+			$('a').attr('href',data.data.items[0]..default )
+		})
+		// .done(function( data ) {
+
+		// 	$.each( data.data, function(i, color) {
+		// 		$("h1").append( $( data.items )
+		// 	})
+
+		// })
+
+	// })
+
+
+
+	</script>
+</body>
+</html>

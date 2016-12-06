@@ -1,0 +1,29 @@
+div{
+	display: block;
+}
+.header{
+	background-color: grey;
+	height: 250px;
+}
+.title{
+	height: 30px;
+	background-color: #E7D8D8
+}
+.sidebar{
+	background-color: #463E3E;
+	float: left;
+	width: 25%;
+	height: 500px;
+}
+.mainbody{
+	background-color: #C1B7B7;
+	display: inline-block;
+	width: 75%;
+	height: 500px;
+}
+.footer{
+	background-color: grey;
+	color: white;
+	height: 250px;
+	margin-top: -10px;
+}

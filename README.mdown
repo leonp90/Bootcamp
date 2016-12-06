@@ -1,0 +1,9 @@
+# Skylab Bootcamp
+
+This project is focused on create a repo where to check all the themes we worked on Skylab Bootcamp
+
+
+##Technologies used
+
+HTML5, CSS3, AJAX, Node JS, Express JS, MongoDB, Angular. 
+
